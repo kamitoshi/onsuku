@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="title">新規登録画面</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "teachers/shared/error_messages", resource: resource %>
+
+        <div class="field pa-40">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "ニックネーム", class:"form-control" %>
+        </div>
+
+        <div class="field pa-40">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メースアドレス", class:"form-control" %>
+        </div>
+
+        <div class="field pa-40">
+          <%= f.select :grade, Teacher.grades.keys, {prompt: "学年を選択してください"}, class: "form-control" %>
+        </div>
+
+        <div class="field pa-40">
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class:"form-control" %>
+        </div>
+
+        <div class="field pa-40">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認用", class:"form-control" %>
+        </div>
+
+        <div class="actions pa-40 wid-50 ma-a">
+          <%= f.submit "新規登録", class:"btn btn-primary btn-lg wid-100" %>
+        </div>
+      <% end %>
+
+      <%= render "teachers/shared/links" %>
+    </div>
+  </div>
+</div>
